@@ -8,7 +8,7 @@ export default function SignUp() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <div className="relative flex h-screen items-center justify-center bg-gradient-to-br from-blue-100 to-blue-50">
+    <div className="relative flex min-h-screen items-center p-4 justify-center bg-gradient-to-br from-blue-100 to-blue-50">
       <div className="w-full rounded-2xl max-w-lg p-8 bg-white shadow-2xl border border-blue-100">
         <div className="flex flex-col items-center gap-2">
           <div className="flex items-center justify-center rounded-full bg-blue-100 p-4 shadow-inner">
