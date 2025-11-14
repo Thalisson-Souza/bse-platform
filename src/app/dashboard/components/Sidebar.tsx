@@ -1,4 +1,12 @@
-import { BookOpenText, LayoutDashboard, LogOut } from "lucide-react";
+import {
+  BookOpenText,
+  Footprints,
+  House,
+  LibraryBig,
+  LogOut,
+  MessageCircle,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function Sidebar() {
@@ -18,8 +26,40 @@ export default function Sidebar() {
           href="/dashboard"
           className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
         >
-          <LayoutDashboard className="h-5 w-5" />
-          Início
+          <House className="h-5 w-5" />
+          Dashboard
+        </Link>
+
+        <Link
+          href="/dashboard"
+          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
+        >
+          <LibraryBig className="h-5 w-5" />
+          Biblioteca Digital
+        </Link>
+
+        <Link
+          href="/dashboard"
+          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
+        >
+          <Footprints className="h-5 w-5" />
+          Trilhas de Estudo
+        </Link>
+
+        <Link
+          href="/dashboard"
+          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
+        >
+          <Users className="h-5 w-5" />
+          Mentorias
+        </Link>
+
+        <Link
+          href="/dashboard"
+          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
+        >
+          <MessageCircle className="h-5 w-5" />
+          Comunidade
         </Link>
       </nav>
 
