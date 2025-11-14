@@ -12,8 +12,7 @@ export default function Header() {
             <input
               type="text"
               placeholder="Buscar materiais, trilhas..."
-              className="w-full rounded-lg p-2.5 pl-10 text-black bg-slate-100 outline-none 
-                 focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
+              className="w-full rounded-lg p-2.5 pl-10 text-black bg-slate-100 outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
             />
           </div>
         </div>
