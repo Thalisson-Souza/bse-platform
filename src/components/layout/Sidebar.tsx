@@ -31,7 +31,7 @@ export default function Sidebar() {
         </Link>
 
         <Link
-          href="/dashboard"
+          href="/digital-library"
           className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
         >
           <LibraryBig className="h-5 w-5" />
@@ -39,7 +39,7 @@ export default function Sidebar() {
         </Link>
 
         <Link
-          href="/dashboard"
+          href="/study-tracks"
           className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
         >
           <Footprints className="h-5 w-5" />
@@ -47,7 +47,7 @@ export default function Sidebar() {
         </Link>
 
         <Link
-          href="/dashboard"
+          href="/mentorship"
           className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
         >
           <Users className="h-5 w-5" />
@@ -55,7 +55,7 @@ export default function Sidebar() {
         </Link>
 
         <Link
-          href="/dashboard"
+          href="/community"
           className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-medium transition"
         >
           <MessageCircle className="h-5 w-5" />

@@ -1,8 +1,8 @@
 "use client";
 
-import Header from "./components/Header";
+import Header from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 import MainContent from "./components/MainContent";
-import Sidebar from "./components/Sidebar";
 
 export default function Dashboard() {
   return (
