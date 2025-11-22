@@ -9,11 +9,34 @@ import ActiveUsers from "./components/ActiveUsers";
 import DiscussionCard from "./components/DiscussionCard";
 import SearchBar from "./components/SearchBar";
 
+// Interfaces
+interface Category {
+  name: string;
+  count: number;
+}
+
+interface Topic {
+  title: string;
+  replies: number;
+}
+
+interface User {
+  name: string;
+  role: string;
+}
+
+interface Discussion {
+  title: string;
+  author: string;
+  replies: number;
+  views: number;
+}
+
 export default function CommunityPage() {
-  const categories = [];
-  const trendingTopics = [];
-  const activeUsers = [];
-  const discussions = [];
+  const categories: Category[] = [];
+  const trendingTopics: Topic[] = [];
+  const activeUsers: User[] = [];
+  const discussions: Discussion[] = [];
 
   return (
     <div className="flex min-h-screen bg-gray-50 text-gray-800">
@@ -32,7 +55,7 @@ export default function CommunityPage() {
             </p>
           </div>
 
-          {/* 🔎 SearchBar + Nova Discussão (linha superior igual ao print) */}
+          {/* 🔎 SearchBar + Nova Discussão */}
           <div className="flex justify-between items-center w-full">
             <SearchBar className="max-w-3xl w-full" />
 
