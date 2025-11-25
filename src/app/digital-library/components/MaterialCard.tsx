@@ -38,10 +38,14 @@ export default function MaterialCard({ material }: any) {
 
       {/* Buttons */}
       <div className="flex items-center gap-3 mt-4">
-        <button className="flex items-center justify-center gap-2 flex-1 bg-black text-white py-2 rounded-lg">
+        <a
+          href={material.fileUrl}
+          download
+          className="flex items-center justify-center gap-2 flex-1 bg-black text-white py-2 rounded-lg"
+        >
           <Download className="h-4 w-4" />
           Baixar
-        </button>
+        </a>
 
         <button className="flex items-center gap-2 border py-2 px-4 rounded-lg">
           <ExternalLink className="h-4 w-4" />

@@ -1,0 +1,164 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+
+  course          String?     // Curso
+  studiedHours    Int?        // Horas estudadas
+  completedCourses Int?       // Cursos concluídos
+  level           String?     // Nível do usuário (Iniciante / Intermediário / Avançado)
+
+  // DASHBOARD
+  tracks        Track[]
+  lessons       Lesson[]
+  opportunities Opportunity[]
+
+  // BIBLIOTECA
+  materials     Material[]
+  categories    LibraryCategory[]
+
+  // MENTORIAS
+  mentors       Mentor[]
+
+  // COMUNIDADE
+  communityCategories CommunityCategory[]
+  trendingTopics      TrendingTopic[]
+  activeUsers         ActiveUser[]
+  discussions         Discussion[]
+}
+
+//
+// DASHBOARD MODELS
+//
+model Track {
+  id          Int     @id @default(autoincrement())
+  title       String
+  category    String?
+  progress    Int?
+  level       String?
+  hours       Int?
+  description String?
+  userId      Int
+  user        User @relation(fields: [userId], references: [id])
+}
+
+model Lesson {
+  id          Int     @id @default(autoincrement())
+  title       String
+  time        String
+  done        Boolean @default(false)
+  trackTitle  String?
+  userId      Int
+  user        User @relation(fields: [userId], references: [id])
+}
+
+model Opportunity {
+  id       Int @id @default(autoincrement())
+  title    String
+  type     String
+  deadline Int
+  userId   Int
+  user     User @relation(fields: [userId], references: [id])
+}
+
+//
+// BIBLIOTECA DIGITAL
+//
+model Material {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  author      String
+  type        String // "video" | "pdf"
+  rating      Float?
+  downloads   Int?
+  tags        String[]
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model LibraryCategory {
+  id     Int    @id @default(autoincrement())
+  name   String
+  count  Int
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+//
+// MENTORIAS
+//
+model Mentor {
+  id            Int      @id @default(autoincrement())
+  name          String
+  initials      String?
+  area          String?
+  bio           String?
+  rating        Float?
+  sessions      Int?
+  tags          String[]
+  nextAvailable String?
+  price         String?
+  userId        Int
+  user          User     @relation(fields: [userId], references: [id])
+}
+
+//
+// COMUNIDADE
+//
+model CommunityCategory {
+  id     Int    @id @default(autoincrement())
+  name   String
+  count  Int
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model TrendingTopic {
+  id     Int    @id @default(autoincrement())
+  topic  String
+  count  Int
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model ActiveUser {
+  id       Int    @id @default(autoincrement())
+  initials String
+  name     String
+  role     String
+  userId   Int
+  user     User   @relation(fields: [userId], references: [id])
+}
+
+model Discussion {
+  id       Int      @id @default(autoincrement())
+  author   String
+  initials String?
+  time     String?
+  title    String
+  message  String
+  tags     String[]
+  likes    Int      @default(0)
+  replies  Int      @default(0)
+  userId   Int
+  user     User     @relation(fields: [userId], references: [id])
+}
+

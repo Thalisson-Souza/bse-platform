@@ -33,16 +33,89 @@ interface Discussion {
 }
 
 export default function CommunityPage() {
-  const categories: Category[] = [];
-  const trendingTopics: Topic[] = [];
-  const activeUsers: User[] = [];
-  const discussions: Discussion[] = [];
+  const categories: Category[] = [
+    { name: "Algoritmos", count: 32 },
+    { name: "Estruturas de Dados", count: 21 },
+    { name: "Front-end", count: 19 },
+    { name: "Back-end", count: 26 },
+    { name: "Banco de Dados", count: 14 },
+    { name: "Segurança", count: 7 },
+    { name: "PET-CC", count: 12 },
+  ];
+
+  const trendingTopics: Topic[] = [
+    { title: "Qual a diferença entre Queue e Stack?", replies: 14 },
+    { title: "Por onde começar no React em 2025?", replies: 22 },
+    {
+      title: "Arquitetura limpa no Node.js: faz diferença mesmo?",
+      replies: 13,
+    },
+    {
+      title: "Como melhorar performance em consultas SQL grandes?",
+      replies: 7,
+    },
+    { title: "Estudar algoritmos todo dia vale mesmo a pena?", replies: 19 },
+  ];
+
+  const activeUsers: User[] = [
+    { name: "Lucas Ferreira", role: "Petiano - SD" },
+    { name: "Mariana Becker", role: "PET Web" },
+    { name: "Caroline Martins", role: "PET Segurança" },
+    { name: "Rafael Schneider", role: "PET Backend" },
+  ];
+
+  const discussions: any[] = [
+    {
+      initials: "LF",
+      author: "Lucas Ferreira",
+      time: "Postado há 2h",
+      title: "Como funciona exatamente uma Linked List?",
+      message:
+        "Estou revisando estruturas de dados e travei um pouco na lógica de ponteiros para listas encadeadas. Alguém teria um exemplo visual ou dica de implementação em C?",
+      tags: ["estruturas", "ponteiros", "C"],
+      likes: 12,
+      replies: 8,
+    },
+    {
+      initials: "MB",
+      author: "Mariana Becker",
+      time: "Ontem às 19h",
+      title: "Qual a melhor forma de organizar componentes no React?",
+      message:
+        "Estou criando um projeto grande e tenho dúvidas sobre a melhor arquitetura para organizar componentes e hooks. Alguma recomendação de padrões?",
+      tags: ["react", "arquitetura", "hooks"],
+      likes: 25,
+      replies: 14,
+    },
+    {
+      initials: "RS",
+      author: "Rafael Schneider",
+      time: "Há 3 dias",
+      title: "Vale a pena usar Prisma ao invés de Sequelize?",
+      message:
+        "Estou migrando um backend Node e estou testando Prisma. Parece muito bom, mas queria ouvir experiências de quem usa em produção.",
+      tags: ["backend", "prisma", "nodejs"],
+      likes: 19,
+      replies: 11,
+    },
+    {
+      initials: "CM",
+      author: "Caroline Martins",
+      time: "Há 5 dias",
+      title: "Como começar em Segurança da Informação?",
+      message:
+        "Que materiais vocês recomendam para quem quer começar a estudar pentest de forma séria?",
+      tags: ["segurança", "pentest", "linux"],
+      likes: 34,
+      replies: 22,
+    },
+  ];
 
   return (
     <div className="flex min-h-screen bg-gray-50 text-gray-800">
       <Sidebar />
 
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 ml-64 h-screen overflow-y-scroll p-8">
         <Header />
 
         <main className="p-8 space-y-8">

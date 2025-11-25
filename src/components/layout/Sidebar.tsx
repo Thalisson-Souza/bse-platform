@@ -13,13 +13,23 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const router = useRouter();
+
+  function handleLogout() {
+    // limpa o id salvo
+    localStorage.removeItem("userId");
+
+    // redireciona para login
+    router.push("/login");
+  }
 
   return (
     <aside
-      className={`flex flex-col bg-white shadow-lg border-r border-gray-200 transition-all duration-300 ${
+      className={`fixed top-0 left-0 h-screen flex flex-col bg-white shadow-lg border-r border-gray-200 transition-all duration-300 z-50 ${
         isCollapsed ? "w-20" : "w-64"
       }`}
     >
@@ -108,6 +118,7 @@ export default function Sidebar() {
       {/* Rodapé */}
       <div className="p-4 border-t border-gray-100">
         <button
+          onClick={handleLogout}
           className={`flex items-center gap-2 w-full px-3 py-2 text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-lg transition ${
             isCollapsed ? "justify-center" : ""
           }`}

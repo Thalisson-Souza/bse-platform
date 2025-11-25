@@ -13,9 +13,14 @@ export default function TrendingTopics({ topics }: any) {
 
       <div className="space-y-2">
         {topics.map((t: any, i: number) => (
-          <div key={i} className="flex justify-between text-sm">
-            <span>{t.topic}</span>
-            <span className="text-xs bg-gray-200 px-2 rounded">{t.count}</span>
+          <div
+            key={i}
+            className="flex justify-between items-center text-sm bg-gray-50 px-3 py-2 rounded-lg hover:bg-gray-100 transition"
+          >
+            <span className="font-medium text-gray-700">{t.title}</span>
+            <span className="text-xs bg-gray-200 px-2 py-1 rounded">
+              {t.replies}
+            </span>
           </div>
         ))}
       </div>
